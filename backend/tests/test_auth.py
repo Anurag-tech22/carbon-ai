@@ -1,0 +1,19 @@
+import pytest
+from backend.auth import get_password_hash, verify_password, create_access_token
+
+def test_password_hashing():
+    password = "secure_password123"
+    hashed = get_password_hash(password)
+    
+    assert hashed != password
+    assert verify_password(password, hashed) == True
+    assert verify_password("wrong_password", hashed) == False
+
+def test_create_access_token():
+    data = {"sub": "testuser"}
+    token = create_access_token(data)
+    
+    assert isinstance(token, str)
+    assert len(token) > 0
+    # Header, payload, signature separation in JWT
+    assert len(token.split('.')) == 3

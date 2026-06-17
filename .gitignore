@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/venv/
+backend/__pycache__/
+venv/
+__pycache__/
+
+# Build outputs
+dist/
+build/
+frontend/dist/
+
+# Environment files
+.env
+.env.local
+
+# IDEs and OS
+.vscode/
+.DS_Store
+.gemini/
